@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej3_infracciones
 {
-    class SistemaActas
+    class SistemaInfracciones
     {
         #region nomenclador de infracciones
         int CODIGO_1_INFRACCION = 1;
@@ -16,43 +16,21 @@ namespace Ej3_infracciones
         int CODIGO_2_INFRACCION = 2;
         string DESC_2_INFRACCION = "alta de Matafuego, ley 2…";
         int UD_2_INFRACCION = 30;
+        //
+        int CODIGO_3_INFRACCION = 3;
+        string DESC_3_INFRACCION = "alta de Matafuego, ley 2…";
+        int UD_3_INFRACCION = 30;
         #endregion
 
         #region atributos generales de sistema
-        double montoBase;
+        public double BaseMonetaria { get; private set; }
 
         public double Recaudacion { get; private set; }
 
-        /*
-        double recaudacion;
-        public double Recaudacion
-        {
-            get {
-                    ...
-                return recaudacion;
-            }
-            set
-            {
-                recaudacion = value;
-            }
-        }
-        */
-
-        /*
-        double recaudacion;
-        public double GetRecaudacion()
-        {
-            return recaudacion;
-        }
-        public void SetRecaudacion(double Value)
-        {
-            recaudacion = Value;
-        }
-        */
         #endregion
 
         #region atributos por cada acta
-        int dni;
+        public int Dni { get; private set; }
         string nombre;
         public double totalAPagar;
         #endregion
@@ -66,7 +44,7 @@ namespace Ej3_infracciones
         #region método del sistema
         public void IniciarSistema(double montoBase)
         {
-            this.montoBase = montoBase;
+            this.BaseMonetaria = montoBase;
             this.Recaudacion = 0;
         }
         #endregion
@@ -74,7 +52,7 @@ namespace Ej3_infracciones
         #region métodos por acta
         public void IniciarActa(int dni, string nombre)
         {
-            this.dni = dni;
+            this.Dni = dni;
             this.nombre = nombre;
             totalAPagar = 0;
         }
@@ -85,12 +63,12 @@ namespace Ej3_infracciones
             {
                 case 1:
                     {
-                        montoInfraccion = UD_1_INFRACCION * montoBase;
+                        montoInfraccion = UD_1_INFRACCION * BaseMonetaria;
                     }
                     break;
                 case 2:
                     {
-                        montoInfraccion = UD_2_INFRACCION * montoBase;
+                        montoInfraccion = UD_2_INFRACCION * BaseMonetaria;
                     }
                     break;
             }

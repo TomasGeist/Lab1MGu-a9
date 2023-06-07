@@ -9,7 +9,7 @@ namespace Ej3_infracciones
     class Program
     {
 
-        static void PantallaIngresoActa(SistemaActas sistema)
+        static void PantallaIngresoActa(SistemaInfracciones sistema)
         {
             Console.Clear();
 
@@ -35,7 +35,7 @@ namespace Ej3_infracciones
             Console.ReadKey();
         }
 
-        static void PantallaImprimirDia(SistemaActas sistema)
+        static void PantallaImprimirDia(SistemaInfracciones sistema)
         {
             Console.Clear();
 
@@ -55,7 +55,7 @@ namespace Ej3_infracciones
         }
         static void Main(string[] args)
         {
-            SistemaActas sis = new SistemaActas();
+            SistemaInfracciones sis = new SistemaInfracciones();
 
             #region pantalla de configuracion
             Console.Clear();
