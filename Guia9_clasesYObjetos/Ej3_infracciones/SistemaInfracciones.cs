@@ -30,15 +30,15 @@ namespace Ej3_infracciones
         #endregion
 
         #region atributos por cada acta
-        public int Dni { get; private set; }
-        string nombre;
+        public int DniActa { get; private set; }
+        public string NombreActa { get; private set; }
         public double totalAPagar;
         #endregion
 
         #region atributos por cada infraccion
-        int codigoInfraccion;
-        string descInfraccion;
-        double montoInfraccion;
+        public int CodigoInfraccion { get; private set; }
+        public string DescripcionInfraccion { get; private set; }
+        public double MontoInfraccion { get; private set; }
         #endregion
 
         #region método del sistema
@@ -52,8 +52,8 @@ namespace Ej3_infracciones
         #region métodos por acta
         public void IniciarActa(int dni, string nombre)
         {
-            this.Dni = dni;
-            this.nombre = nombre;
+            this.DniActa = dni;
+            this.NombreActa = nombre;
             totalAPagar = 0;
         }
 
@@ -63,17 +63,17 @@ namespace Ej3_infracciones
             {
                 case 1:
                     {
-                        montoInfraccion = UD_1_INFRACCION * BaseMonetaria;
+                        MontoInfraccion = UD_1_INFRACCION * BaseMonetaria;
                     }
                     break;
                 case 2:
                     {
-                        montoInfraccion = UD_2_INFRACCION * BaseMonetaria;
+                        MontoInfraccion = UD_2_INFRACCION * BaseMonetaria;
                     }
                     break;
             }
-            totalAPagar += montoInfraccion;
-            return montoInfraccion;
+            totalAPagar += MontoInfraccion;
+            return MontoInfraccion;
         }
 
         public void FinalizarActa(bool pagaEnElLugar)
